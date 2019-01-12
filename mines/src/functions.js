@@ -70,6 +70,7 @@ const openField = (board, row, column) => {
     const field = board[row][column]
     if (!field.opened) {
         field.opened = true
+        field.flagged = false
         if (field.mined) {
             field.exploded = true
         } else if (safeNeighborhood(board, row, column)) {
@@ -97,7 +98,8 @@ const showMines = board => fields(board).filter(field => field.mined)
 
 const invertFlag = (board, row, column) => {
     const field = board[row][column]
-    field.flagged = !field.flagged
+    if (!field.opened)
+        field.flagged = !field.flagged
 }
 
 const flagsUsed = board => fields(board)

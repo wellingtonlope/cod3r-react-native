@@ -11,7 +11,7 @@ export default props => {
     if (opened) styleField.push(styles.opened)
     if (exploded) styleField.push(styles.exploded)
     if (flagged) styleField.push(styles.flagged)
-    if (!opened) styleField.push(styles.regular)
+    if (!opened && !exploded) styleField.push(styles.regular)
 
     let color = null
     if (nearMines > 0) {
