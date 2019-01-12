@@ -1,7 +1,9 @@
 module.exports = app => {
     const {
-        user
+        user,
+        auth,
     } = app.api
 
     app.post('/signup', user.save)
+    app.post('/signin', auth.signin)
 }
