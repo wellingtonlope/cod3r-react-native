@@ -11,11 +11,12 @@ import AddComment from './AddComment'
 
 class Post extends Component {
     render() {
+        const { image, email, comments, nickname } = this.props
         return (
             <View style={styles.container}>
-                <Image source={this.props.image} style={styles.image} />
-                <Author email='fulano@gmail.com' nickname='Fulano de Tal' />
-                <Comments comments={this.props.comments} />
+                <Image source={image} style={styles.image} />
+                <Author email={email} nickname={nickname} />
+                <Comments comments={comments} />
                 <AddComment />
             </View>
         )
